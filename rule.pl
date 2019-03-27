@@ -4,8 +4,8 @@ parent(penelope,arthur).
 parent(penelope,victoria).
 parent(andrew,james).
 parent(andrew,jannifer).
-parent(christopher,james).
-parent(christopher,jannifer).
+parent(christine,james).
+parent(christine,jannifer).
 parent(victoria,colin).
 parent(victoria,chalotte).
 parent(james,colin).
@@ -35,7 +35,7 @@ male(macro).
 male(tomaso).
 male(alfonso).
 female(penelope).
-female(christopher).
+female(christine).
 female(margaret).
 female(victoria).
 female(jannifer).
@@ -46,3 +46,9 @@ female(gine).
 female(lucia).
 female(angela).
 female(sophia).
+
+grandparent(X,Y):- parent(X,Z),parent(Z,Y).
+farther(X,Y):- male(X) ,parent(X,Y).
+can_marry(X,Y):- not(sibling(X,Y)), like(X,Y).
+sibling(X,Y):- parent(Z,X), parent(Z,Y), X\=Y.
+like(arthur,margaret).
